@@ -1,4 +1,4 @@
-# Block Uploads App (Web-SDK V2.0)
+# Miro - Block Uploads App (Web-SDK V2.0)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 

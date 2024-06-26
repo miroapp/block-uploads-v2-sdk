@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-This Web-SDK V2.0 app removes any file uploaded to the Board (document and images).
+This Web-SDK V2.0 app removes any file uploaded to a Miro Board (document and images).
 
 ## Installation
 

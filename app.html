@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="miro-sdk2" src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+</head>
+<body>
+    <script>
+        async function scanBoard() {
+            var uploads = false;
+            var allDocuments = await miro.board.get({type: 'document'});
+            if (allDocuments.length > 0){
+                uploads = true;
+                for(var a=0; a < allDocuments.length; a++) {
+                    miro.board.remove(allDocuments[a]);
+                }
+            }
+
+            if (uploads) {
+                miro.board.notifications.showError('Your organization\'s security policies do not allow document uploads');
+                miro.board.ui.openModal({url: 'upload-warning.html', width: 700, height: 400, fullscreen: false});
+            }
+        }
+
+        async function init() {
+            miro.board.ui.on('items:create', scanBoard);
+            miro.board.ui.on('selection:update', scanBoard);
+            await scanBoard();
+        }
+
+        init()
+    </script>
+</body>
+</html>

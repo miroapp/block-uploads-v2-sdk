@@ -27,13 +27,11 @@
                 miro.board.ui.openModal({url: 'upload-warning.html', width: 700, height: 400, fullscreen: false});
             }
         }
-
         async function init() {
             miro.board.ui.on('items:create', scanBoard);
             miro.board.ui.on('selection:update', scanBoard);
             await scanBoard();
         }
-
         init()
     </script>
 </body>

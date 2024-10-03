@@ -7,12 +7,19 @@
 <body>
     <script>
         async function scanBoard() {
-            var uploads = false;
-            var allDocuments = await miro.board.get({type: 'document'});
+            let uploads = false;
+            let allDocuments = await miro.board.get({type: 'document'});
+            let allImages = await miro.board.get({type: 'image'});
             if (allDocuments.length > 0){
                 uploads = true;
-                for(var a=0; a < allDocuments.length; a++) {
+                for(let a=0; a < allDocuments.length; a++) {
                     miro.board.remove(allDocuments[a]);
+                }
+            }
+            if (allImages.length > 0){
+                uploads = true;
+                for(let b=0; b < allImages.length; b++) {
+                    miro.board.remove(allImages[b]);
                 }
             }
 
